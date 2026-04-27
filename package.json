@@ -1,0 +1,31 @@
+{
+  "name": "@incog/validate",
+  "version": "1.0.0",
+  "description": "Simple, fast validation library by Incognito",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./rules": "./rules.js"
+  },
+  "keywords": [
+    "validation",
+    "validator",
+    "email",
+    "phone",
+    "url",
+    "incog"
+  ],
+  "author": "Incognito",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/incognito-dev07/incog-validate"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
