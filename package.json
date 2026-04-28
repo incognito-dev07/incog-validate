@@ -1,5 +1,5 @@
 {
-  "name": "@incog/validate",
+  "name": "@incogdev/validate",
   "version": "1.0.0",
   "description": "Simple, fast validation library by Incognito",
   "main": "index.js",
@@ -14,13 +14,13 @@
     "email",
     "phone",
     "url",
-    "incog"
+    "incognito"
   ],
   "author": "Incognito",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/incognito-dev07/incog-validate"
+    "url": "https://github.com/incog-validate"
   },
   "scripts": {
     "test": "node test/test.js"

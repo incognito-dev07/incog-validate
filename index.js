@@ -1,5 +1,5 @@
 /**
- * @incog/validate - Validation library by Incognito
+ * @incogdev/validate - Validation library by Incognito
  * Simple, fast, zero dependencies
  */
 
