@@ -1,20 +1,32 @@
 {
   "name": "@incogdev/validate",
-  "version": "1.0.0",
-  "description": "Simple, fast validation library by Incognito",
+  "version": "2.0.0",
+  "description": "Simple, fast, type-safe validation library",
   "main": "index.js",
+  "types": "index.d.ts",
   "type": "module",
   "exports": {
-    ".": "./index.js",
-    "./rules": "./rules.js"
+    ".": {
+      "import": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./rules": {
+      "import": "./lib/rules.js",
+      "types": "./index.d.ts"
+    },
+    "./schema": {
+      "import": "./lib/schema.js",
+      "types": "./index.d.ts"
+    }
   },
   "keywords": [
     "validation",
     "validator",
+    "schema",
+    "typescript",
     "email",
     "phone",
-    "url",
-    "incognito"
+    "url"
   ],
   "author": "Incognito",
   "license": "MIT",
@@ -23,9 +35,13 @@
     "url": "https://github.com/incog-validate"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node test/test.js",
+    "test:ts": "tsc --noEmit test/test.ts"
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
   }
 }
