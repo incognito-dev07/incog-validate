@@ -58,10 +58,3 @@ export interface SchemaRule {
 export function schema(schemaDefinition: Record<string, SchemaRule>): {
   validate(data: Record<string, any>): { valid: boolean; errors: Record<string, string[]> };
 };
-
-export default {
-  rules: ValidationRules;
-  validate: typeof validate;
-  Validator: typeof Validator;
-  schema: typeof schema;
-};
