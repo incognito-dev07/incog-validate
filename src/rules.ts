@@ -1,16 +1,14 @@
-// Individual validation rules
-
-export const email = (value) => {
+export const email = (value: unknown): boolean => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(String(value).toLowerCase());
 };
 
-export const phone = (value) => {
+export const phone = (value: unknown): boolean => {
   const regex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{3,6}[-\s\.]?[0-9]{3,6}$/;
   return regex.test(String(value));
 };
 
-export const url = (value) => {
+export const url = (value: unknown): boolean => {
   try {
     new URL(String(value));
     return true;
@@ -19,44 +17,44 @@ export const url = (value) => {
   }
 };
 
-export const notEmpty = (value) => {
+export const notEmpty = (value: unknown): boolean => {
   return value !== null && value !== undefined && String(value).trim().length > 0;
 };
 
-export const isNumber = (value) => {
-  return !isNaN(parseFloat(value)) && isFinite(value);
+export const isNumber = (value: unknown): boolean => {
+  return !isNaN(parseFloat(String(value))) && isFinite(Number(value));
 };
 
-export const isInt = (value) => {
+export const isInt = (value: unknown): boolean => {
   return Number.isInteger(Number(value));
 };
 
-export const isBoolean = (value) => {
+export const isBoolean = (value: unknown): boolean => {
   return typeof value === 'boolean' || value === 'true' || value === 'false';
 };
 
-export const minLength = (value, min) => {
+export const minLength = (value: unknown, min: number): boolean => {
   return String(value).length >= min;
 };
 
-export const maxLength = (value, max) => {
+export const maxLength = (value: unknown, max: number): boolean => {
   return String(value).length <= max;
 };
 
-export const between = (value, min, max) => {
+export const between = (value: unknown, min: number, max: number): boolean => {
   const num = Number(value);
   return num >= min && num <= max;
 };
 
-export const matches = (value, regex) => {
+export const matches = (value: unknown, regex: RegExp): boolean => {
   return regex.test(String(value));
 };
 
-export const oneOf = (value, allowed) => {
+export const oneOf = <T>(value: T, allowed: T[]): boolean => {
   return allowed.includes(value);
 };
 
-export const strongPassword = (value) => {
+export const strongPassword = (value: unknown): boolean => {
   const str = String(value);
   return (
     str.length >= 8 &&
@@ -67,7 +65,7 @@ export const strongPassword = (value) => {
   );
 };
 
-export const postalCode = (value, country = 'US') => {
+export const postalCode = (value: unknown, country: 'US' | 'CA' | 'UK' = 'US'): boolean => {
   const patterns = {
     US: /^\d{5}(-\d{4})?$/,
     CA: /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/,
@@ -76,7 +74,7 @@ export const postalCode = (value, country = 'US') => {
   return patterns[country]?.test(String(value)) || false;
 };
 
-export const creditCard = (value) => {
+export const creditCard = (value: unknown): boolean => {
   const str = String(value).replace(/\s/g, '');
   if (!/^\d{13,16}$/.test(str)) return false;
   
@@ -94,7 +92,7 @@ export const creditCard = (value) => {
   return sum % 10 === 0;
 };
 
-export const ip = (value, version = 4) => {
+export const ip = (value: unknown, version: 4 | 6 = 4): boolean => {
   if (version === 4) {
     return /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(String(value));
   }

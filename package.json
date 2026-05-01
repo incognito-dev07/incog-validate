@@ -1,23 +1,28 @@
 {
   "name": "@incogdev/validate",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "Simple, fast, type-safe validation library",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./index.js",
-      "types": "./index.d.ts"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./rules": {
-      "import": "./lib/rules.js",
-      "types": "./index.d.ts"
+      "import": "./dist/rules.js",
+      "types": "./dist/rules.d.ts"
     },
     "./schema": {
-      "import": "./lib/schema.js",
-      "types": "./index.d.ts"
+      "import": "./dist/schema.js",
+      "types": "./dist/schema.d.ts"
     }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node test/test.js",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "validation",
@@ -34,14 +39,11 @@
     "type": "git",
     "url": "https://github.com/incog-validate"
   },
-  "scripts": {
-    "test": "node test/test.js",
-    "test:ts": "tsc --noEmit test/test.ts"
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
   },
   "engines": {
     "node": ">=14.0.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.0.0"
   }
 }
