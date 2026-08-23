@@ -1,0 +1,73 @@
+{
+  "name": "zelvar-validate",
+  "version": "1.0.1",
+  "description": "Fast and type-safe validation library with async, conditional, nested schema, and batch support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./rules": {
+      "import": "./dist/rules.js",
+      "types": "./dist/rules.d.ts"
+    },
+    "./schema": {
+      "import": "./dist/schema.js",
+      "types": "./dist/schema.d.ts"
+    },
+    "./async": {
+      "import": "./dist/async.js",
+      "types": "./dist/async.d.ts"
+    },
+    "./conditional": {
+      "import": "./dist/conditional.js",
+      "types": "./dist/conditional.d.ts"
+    },
+    "./nested": {
+      "import": "./dist/nested.js",
+      "types": "./dist/nested.d.ts"
+    },
+    "./batch": {
+      "import": "./dist/batch.js",
+      "types": "./dist/batch.d.ts"
+    },
+    "./browser": {
+      "import": "./dist/browser.js",
+      "types": "./dist/browser.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node test/test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "validation",
+    "validator",
+    "schema",
+    "typescript",
+    "async",
+    "conditional",
+    "nested",
+    "batch",
+    "email",
+    "phone",
+    "url"
+  ],
+  "author": "Zelvarys",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zelvarys/zelvar-validate"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
